@@ -3,6 +3,7 @@ import { MetalDetail } from './MetalDetails';
 import { HttpClient } from '@angular/common/http'
 import { Metal } from './Metals';
 import { Observable, of } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class DeltaService {
 
   formData: MetalDetail = new MetalDetail();
-  metals : Metal[];
+  metals = new MatTableDataSource<Metal>([]);
   list: Metal[];
   constructor(private http:HttpClient) { }
   readonly baseUrl = 'https://localhost:44368/api/MetalsSummary'
