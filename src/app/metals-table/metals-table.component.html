@@ -1,0 +1,23 @@
+<app-delta-form></app-delta-form>
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Metal</th>
+                <th>Bid</th>
+                <th>Ask</th>
+                <th>Change</th>
+                <th>Change%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let metal of metals">
+                <td><span>{{ metal.data.symbol }}</span></td>
+                <td><span>{{ metal.data.bid }}</span></td>
+                <td><span>{{ metal.data.ask }}</span></td>
+                <td><span>{{ metal.data.oneDayChange }}</span></td>
+                <td><span>{{ metal.data.oneDayPercentChange }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
