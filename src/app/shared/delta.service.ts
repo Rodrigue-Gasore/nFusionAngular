@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MetalDetail } from './MetalDetails';
 import { HttpClient } from '@angular/common/http'
 import { Metal } from './Metals';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { Metal } from './Metals';
 export class DeltaService {
 
   formData: MetalDetail = new MetalDetail();
+  metals : Metal[];
   list: Metal[];
   constructor(private http:HttpClient) { }
   readonly baseUrl = 'https://localhost:44368/api/MetalsSummary'
@@ -19,27 +21,17 @@ export class DeltaService {
         metal: this.formData.metal,
         bidDelta: this.formData.bidDelta,
         askDelta: this.formData.askDelta
-      },
-      observe: 'response'
+      }
     })
     
   }
-  refreshTable (){
-    this.http.get(this.baseUrl,{
+  refreshTable (): Observable<Metal[]> {
+    return this.http.get<Metal[]>(this.baseUrl,{
       params: {
         metal: this.formData.metal,
         bidDelta: this.formData.bidDelta,
         askDelta: this.formData.askDelta
-      },
-      observe: 'response'
-    }).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.list = response.body as Metal[];
-      },
-      error: (err) => {
-        console.log(err);
       }
-    });
+    })
   }
 }

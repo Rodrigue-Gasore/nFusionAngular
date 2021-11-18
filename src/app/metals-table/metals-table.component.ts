@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeltaService } from '../shared/delta.service';
+import { Metal } from '../shared/Metals';
+import {MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-metals-table',
@@ -8,11 +10,16 @@ import { DeltaService } from '../shared/delta.service';
 })
 export class MetalsTableComponent implements OnInit {
 
-  metals = this.service.list;
-  constructor(public service: DeltaService) { }
+  displayedColumns: string[] = ['symbol', 'bid', 'ask', 'oneDayChange', 'oneDayPercentChange'];
+  metals = new MatTableDataSource<Metal>([]);
+  constructor(private service: DeltaService) { }
 
   ngOnInit(): void {
-    this.service.refreshTable();
+    this.service.refreshTable().subscribe((data: Metal[]
+      ) => {
+        console.log(data);
+      this.metals.data = data;
+    });
   }
 
 }

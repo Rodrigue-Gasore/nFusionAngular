@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { MetalsTableComponent } from './metals-table/metals-table.component';
 import { DeltaFormComponent } from './metals-table/delta-form/delta-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatTableModule,
     RouterModule.forRoot([
       { path: '', component: MetalsTableComponent },
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

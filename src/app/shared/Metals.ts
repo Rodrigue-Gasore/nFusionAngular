@@ -1,4 +1,4 @@
-interface Data {
+export interface Data {
   symbol: string;
   baseCurrency: string;
   last: number;

@@ -18,7 +18,7 @@ export class DeltaFormComponent implements OnInit {
     this.service.addMetalDelta().subscribe({
       next: (response) => {
         console.log(response);
-        this.service.list = response.body as Metal[];
+        this.service.list = response as Metal[];
       },
       error: (err) => {
         console.log(err);
