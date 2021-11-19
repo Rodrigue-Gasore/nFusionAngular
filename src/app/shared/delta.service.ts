@@ -14,7 +14,7 @@ export class DeltaService {
   metals = new MatTableDataSource<Metal>([]);
   list: Metal[];
   constructor(private http:HttpClient) { }
-  readonly baseUrl = 'http://rodrigue-001-site1.htempurl.com/api/MetalsSummary'
+  readonly baseUrl = 'https://morning-plains-24446.herokuapp.com/api/metalssummary'
 
   addMetalDelta(){
     return this.http.get(this.baseUrl,{
