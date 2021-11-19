@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/nfusionsolutions-challenge",
+    "public": "dist\\nfusionsolutionsChallenge",
     "ignore": [
       "firebase.json",
       "**/.*",

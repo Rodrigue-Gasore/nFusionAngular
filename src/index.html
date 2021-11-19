@@ -15,5 +15,29 @@
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCsQL52wk7GEUt71fLEnJPYssGu9axOpF8",
+      authDomain: "nfusionchallenge.firebaseapp.com",
+      databaseURL: "https://nfusionchallenge-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "nfusionchallenge",
+      storageBucket: "nfusionchallenge.appspot.com",
+      messagingSenderId: "415717421067",
+      appId: "1:415717421067:web:5ca5b4cce3eeadd0ca570e",
+      measurementId: "G-Z4FTVPYCC9"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>
